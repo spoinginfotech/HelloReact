@@ -1229,48 +1229,66 @@ babelHelpers.toConsumableArray = function (arr) {
   }
 };
 })(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : this);
-__d(/* AwesomeProject/index.android.js */function(global, require, module, exports) {require(12             ); // 12 = ./src/example
-}, 0, null, "AwesomeProject/index.android.js");
-__d(/* AwesomeProject/src/example.js */function(global, require, module, exports) {var _react = require(13     ); // 13 = react
+__d(/* AwesomeProject/index.android.js */function(global, require, module, exports) {var _react = require(13     ); // 13 = react
 
 var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(46            ); // 46 = react-native
 
-var _Bananas = require(415        ); // 415 = ./Bananas
+var _Bananas = require(415            ); // 415 = ./src/Bananas
 
 var _Bananas2 = babelHelpers.interopRequireDefault(_Bananas);
 
-var HelloWorldApp = function (_Component) {
-  babelHelpers.inherits(HelloWorldApp, _Component);
+var _Blinking = require(416             ); // 416 = ./src/Blinking
 
-  function HelloWorldApp() {
-    babelHelpers.classCallCheck(this, HelloWorldApp);
-    return babelHelpers.possibleConstructorReturn(this, (HelloWorldApp.__proto__ || Object.getPrototypeOf(HelloWorldApp)).apply(this, arguments));
+var _Blinking2 = babelHelpers.interopRequireDefault(_Blinking);
+
+var _ListItems = require(417              ); // 417 = ./src/ListItems
+
+var _ListItems2 = babelHelpers.interopRequireDefault(_ListItems);
+
+var AwesomeProject = function (_Component) {
+  babelHelpers.inherits(AwesomeProject, _Component);
+
+  function AwesomeProject() {
+    babelHelpers.classCallCheck(this, AwesomeProject);
+    return babelHelpers.possibleConstructorReturn(this, (AwesomeProject.__proto__ || Object.getPrototypeOf(AwesomeProject)).apply(this, arguments));
   }
 
-  babelHelpers.createClass(HelloWorldApp, [{
+  babelHelpers.createClass(AwesomeProject, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _reactNative.View,
-        { style: { flexDirection: 'row', padding: 20 } },
+        { style: styles.container },
         _react2.default.createElement(
           _reactNative.Text,
-          null,
+          { style: styles.hello },
           'Hello world!'
         ),
-        _react2.default.createElement(_Bananas2.default, null)
+        _react2.default.createElement(_Bananas2.default, null),
+        _react2.default.createElement(_ListItems2.default, null)
       );
     }
   }]);
-  return HelloWorldApp;
+  return AwesomeProject;
 }(_react.Component);
 
-_reactNative.AppRegistry.registerComponent('AwesomeProject', function () {
-  return HelloWorldApp;
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  hello: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  }
 });
-}, 12, null, "AwesomeProject/src/example.js");
+_reactNative.AppRegistry.registerComponent('AwesomeProject', function () {
+  return AwesomeProject;
+});
+}, 0, null, "AwesomeProject/index.android.js");
 __d(/* react/react.js */function(global, require, module, exports) {'use strict';
 
 module.exports = require(14           ); // 14 = ./lib/React
@@ -50053,6 +50071,113 @@ var Bananas = function (_Component) {
 
 exports.default = Bananas;
 }, 415, null, "AwesomeProject/src/Bananas.js");
+__d(/* AwesomeProject/src/Blinking.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require(13     ); // 13 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(46            ); // 46 = react-native
+
+var Blinking = function (_Component) {
+  babelHelpers.inherits(Blinking, _Component);
+
+  function Blinking(props) {
+    babelHelpers.classCallCheck(this, Blinking);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Blinking.__proto__ || Object.getPrototypeOf(Blinking)).call(this, props));
+
+    _this.state = { showText: true };
+
+    setInterval(function () {
+      _this.setState({ showText: !_this.state.showText });
+    }, 1000);
+    return _this;
+  }
+
+  babelHelpers.createClass(Blinking, [{
+    key: 'render',
+    value: function render() {
+      var display = this.state.showText ? this.props.text : ' ';
+      return _react2.default.createElement(
+        _reactNative.Text,
+        null,
+        display
+      );
+    }
+  }]);
+  return Blinking;
+}(_react.Component);
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 8
+  }
+});
+exports.default = Blinking;
+}, 416, null, "AwesomeProject/src/Blinking.js");
+__d(/* AwesomeProject/src/ListItems.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require(13     ); // 13 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(46            ); // 46 = react-native
+
+var ListItems = function (_Component) {
+  babelHelpers.inherits(ListItems, _Component);
+
+  function ListItems() {
+    babelHelpers.classCallCheck(this, ListItems);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (ListItems.__proto__ || Object.getPrototypeOf(ListItems)).call(this));
+
+    var ds = new _reactNative.ListView.DataSource({ rowHasChanged: function rowHasChanged(r1, r2) {
+        return r1 !== r2;
+      } });
+    _this.state = {
+      dataSource: ds.cloneWithRows(['row 1', 'row 2'])
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(ListItems, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container },
+        _react2.default.createElement(_reactNative.ListView, {
+          dataSource: this.state.dataSource,
+          renderRow: function renderRow(rowData) {
+            return _react2.default.createElement(
+              _reactNative.Text,
+              null,
+              rowData
+            );
+          }
+        })
+      );
+    }
+  }]);
+  return ListItems;
+}(_react.Component);
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 8
+  }
+});
+exports.default = ListItems;
+}, 417, null, "AwesomeProject/src/ListItems.js");
 ;require(91);
 ;require(0);
 //# sourceMappingURL=/index.android.map?platform=android

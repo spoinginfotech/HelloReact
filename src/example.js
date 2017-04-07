@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 import Bananas from './Bananas';
+import Blinking from './Blinking';
+import ListItems from './ListItems';
 
-class HelloWorldApp extends Component {
+class AwesomeProject extends Component {
   render() {
     return (
-      <View style={{flexDirection: 'row', padding: 20}}>
+      <View style={{flex: 1, padding: 20}}>
         <Text>Hello world!</Text>
         <Bananas />
+        <ListItems/>
+
       </View>
     );
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);
+AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
