@@ -3,14 +3,15 @@ import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import Bananas from './src/Bananas';
 import Blinking from './src/Blinking';
 import ListItems from './src/ListItems';
+import SampleButtons from './src/SampleButtons';
+import Forex from './src/Forex';
 
 class AwesomeProject extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello world!</Text>
-        <Bananas />
-        <ListItems/>
+
+        <Forex currency='PHP' />
 
       </View>
     );
@@ -18,13 +19,15 @@ class AwesomeProject extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'center',
   },
   hello: {
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center',
     margin: 10,
+    fontWeight: 'bold',
+    color: '#174c5d'
   },
 });
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
